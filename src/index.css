@@ -2,11 +2,10 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
+  width: 100%;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -18,6 +17,7 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
@@ -25,13 +25,15 @@ a:hover {
 body {
   margin: 0;
   display: flex;
+  flex-direction: column; /* Adjusted for responsive layout */
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  padding: 0 0; /* Added padding for better spacing */
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 2.5em; /* Adjusted font size for better mobile readability */
   line-height: 1.1;
 }
 
@@ -46,9 +48,11 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -66,9 +70,33 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
 .grassImg {
-  background-image: 'url(/hero-img.png)'
+  background-image: url('./assets/grass.jpg');
+  background-repeat: no-repeat;
+  background-size: cover; /* Adjusted to be fully responsive */
+  width: 100%;
+  height: 100%;
 }
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2em; /* Further reduced size for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 0 0.5rem; /* Reduce padding for very small screens */
+  }
+
+  h1 {
+    font-size: 1.8em;
+  }
+}
+
+/* Tailwind CSS Directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
