@@ -75,4 +75,8 @@ header {
     padding: 0.8em;
   }
 }
-  
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+}

@@ -1,9 +1,10 @@
 import "./App.css";
+import washingtonBill from "./assets/washington_bill.png";
 
 function App() {
   return (
     <>
-      <header className="fixed top-0 left-0 w-full">
+      <header className="fixed top-0 left-0 w-full z-10">
         <MyNavbar />
       </header>
       <main className="mt-16">
@@ -22,6 +23,13 @@ function App() {
         </section>
         <section>
           <MyDescHero />
+        </section>
+        <Divider />
+        <section>
+          <h2>כתבות</h2>
+          <div className="grid-container">
+            <Card img={washingtonBill} alt="וושינגטון" title="איך החל השקר ששמו ''עשב''?"/>
+          </div>
         </section>
       </main>
     </>
@@ -58,7 +66,8 @@ function MyDescHero() {
         <div className="text-center lg:text-left lg:mr-8">
           <h1 className="text-4xl sm:text-5xl font-bold">אודות האגודה</h1>
           <p className="py-4 sm:py-6 text-base sm:text-lg">
-            אנחנו, האגודה למען מיטוט שקר העשב...
+          אנחנו, האגודה למען מיטוט שקר העשב, בראשי תיבות: (אלמש''ע) או בקיצור: אגודת מיטוט העשב, פועלים כבר עשרים ושמונה שנים למען מיטוט השקר שנקרא ''עשב''. אנחנו יודעים ומנסים להנחיל לעולם את זה שהמושג ''עשב'' (עשב, עשבים, עשב ערבה, עשבי תיבול,עשבים שותים, עשב חיטה וכו') הוא המצאה של ממשלת ארה''ב, עוד מהימים בהם ג'ורג' וושינגטון היה מוכר דשא נחשל. (ראה בכתבה)
+          הצטרפו אלינו, ויחד, נמוטט את השקרים!
           </p>
         </div>
       </div>
@@ -66,4 +75,27 @@ function MyDescHero() {
   );
 }
 
+function Divider() {
+  return (
+      <div className="divider"></div>
+  )
+}
+function Card(props) {
+  return (
+    <div className="card card-compact bg-base-100 w-96 shadow-xl">
+  <figure>
+    <img
+      src={props.img}
+      alt={props.alt} />
+  </figure>
+  <div className="card-body">
+    <h2 className="card-title">{props.title}</h2>
+    <p>{props.desc}</p>
+    <div className="card-actions justify-end">
+      <button className="btn btn-primary">קרא עוד</button>
+    </div>
+  </div>
+</div>
+  )
+}
 export default App;
