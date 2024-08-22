@@ -1,5 +1,11 @@
 import "./App.css";
 import washingtonBill from "./assets/washington_bill.png";
+import demon from "./assets/demon.png";
+import candles from "./assets/candles.jpg";
+import dictionary from "./assets/dictionary.jpg";
+import mountain from "./assets/mountain.jpg";
+import street from "./assets/street.jpg"
+import wikipedia from "./assets/wikipedia.png"
 
 function App() {
   return (
@@ -28,12 +34,12 @@ function App() {
         <section>
           <h2>כתבות</h2>
           <div className="grid-container">
-            <Card img={washingtonBill} alt="וושינגטון" title="ויקיפדיה - השותפים להסתרה."/>
-            <Card img={washingtonBill} alt="וושינגטון" title="השקר של נשיאי ארה''ב"/>
-            <Card img={washingtonBill} alt="וושינגטון" title="זימון שדים: כיצד לכלוא את שר ההסתרה?"/>
-            <Card img={washingtonBill} alt="וושינגטון" title="תחקיר: מיהו השד שמאחורי ה''עשב''"/>
-            <Card img={washingtonBill} alt="וושינגטון" title="תרגום המילה לעברית"/>
-            <Card img={washingtonBill} alt="וושינגטון" title="השתרשות המילה בשפה האנגלית"/>
+            <Card img={wikipedia} alt="וושינגטון" title="ויקיפדיה - השותפים להסתרה."/>
+            <Card img={mountain} alt="וושינגטון" title="השקר של נשיאי ארה''ב"/>
+            <Card img={candles} alt="וושינגטון" title="זימון שדים: כיצד לכלוא את שר ההסתרה?"/>
+            <Card img={demon} alt="וושינגטון" title="תחקיר: מיהו השד שמאחורי ה''עשב''"/>
+            <Card img={street} alt="וושינגטון" title="תרגום המילה לעברית"/>
+            <Card img={dictionary} alt="וושינגטון" title="השתרשות המילה בשפה האנגלית"/>
             <Card img={washingtonBill} alt="וושינגטון" title="איך החל השקר ששמו ''עשב''?"/>
           </div>
         </section>
@@ -96,7 +102,6 @@ function Card(props) {
   </figure>
   <div className="card-body">
     <h2 className="card-title">{props.title}</h2>
-    <p>{props.desc}</p>
     <div className="card-actions justify-end">
       <button className="btn btn-primary">קרא עוד</button>
     </div>

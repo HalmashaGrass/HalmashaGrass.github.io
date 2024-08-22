@@ -80,10 +80,20 @@ header {
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns on desktop */
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
+.grid-container > div {
+  height: 400px; /* Fixed height for all grid cells */
+  overflow: hidden; /* Hide any content that overflows */
+}
+
+.grid-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crop the image if it does not fit */
+}
 /* Add media queries for mobile screens */
 @media (max-width: 768px) {
   .grid-container {
