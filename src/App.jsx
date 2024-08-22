@@ -6,8 +6,20 @@ import dictionary from "./assets/dictionary.jpg";
 import mountain from "./assets/mountain.jpg";
 import street from "./assets/street.jpg"
 import wikipedia from "./assets/wikipedia.png"
+import { Link, BrowserRouter, Routes, Route } from 'react-router-dom'
+import ArticlePage from "./ArticlePage.jsx";
 
 function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/halmasha" element={<Home />} />
+        <Route path="/halmasha/articles/:id" element={<ArticlePage />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+function Home() {
   return (
     <>
       <header className="fixed top-0 left-0 w-full z-10">
@@ -34,13 +46,13 @@ function App() {
         <section>
           <h2>כתבות</h2>
           <div className="grid-container">
-            <Card img={wikipedia} alt="וושינגטון" title="ויקיפדיה - השותפים להסתרה."/>
-            <Card img={mountain} alt="וושינגטון" title="השקר של נשיאי ארה''ב"/>
-            <Card img={candles} alt="וושינגטון" title="זימון שדים: כיצד לכלוא את שר ההסתרה?"/>
-            <Card img={demon} alt="וושינגטון" title="תחקיר: מיהו השד שמאחורי ה''עשב''"/>
-            <Card img={street} alt="וושינגטון" title="תרגום המילה לעברית"/>
-            <Card img={dictionary} alt="וושינגטון" title="השתרשות המילה בשפה האנגלית"/>
-            <Card img={washingtonBill} alt="וושינגטון" title="איך החל השקר ששמו ''עשב''?"/>
+            <Card img={wikipedia} id="wikipedia" title="ויקיפדיה - השותפים להסתרה."/>
+            <Card img={mountain} id="presidents" title="השקר של נשיאי ארה''ב"/>
+            <Card img={candles} id="summoning" title="זימון שדים: כיצד לכלוא את שר ההסתרה?"/>
+            <Card img={demon} id="demons" title="תחקיר: מיהו השד שמאחורי ה''עשב''"/>
+            <Card img={street} id="translation" title="תרגום המילה לעברית"/>
+            <Card img={dictionary} id="english" title="השתרשות המילה בשפה האנגלית"/>
+            <Card img={washingtonBill} id="weed-lie" title="איך החל השקר ששמו ''עשב''?"/>
           </div>
         </section>
       </main>
@@ -95,18 +107,18 @@ function Divider() {
 function Card(props) {
   return (
     <div className="card card-compact bg-base-100 w-96 shadow-xl">
-  <figure>
-    <img
-      src={props.img}
-      alt={props.alt} />
-  </figure>
-  <div className="card-body">
-    <h2 className="card-title">{props.title}</h2>
-    <div className="card-actions justify-end">
-      <button className="btn btn-primary">קרא עוד</button>
+      <figure>
+        <img src={props.img} alt={props.id} />
+      </figure>
+      <div className="card-body">
+        <h2 className="card-title">{props.title}</h2>
+        <div className="card-actions justify-end">
+          <Link to={`/halmasha/articles/${props.id}`}>
+            <button className="btn btn-primary">Read More</button>
+          </Link>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-  )
+  );
 }
 export default App;
