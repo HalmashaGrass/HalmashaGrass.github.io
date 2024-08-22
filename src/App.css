@@ -75,8 +75,24 @@ header {
     padding: 0.8em;
   }
 }
+/* Base Styles for Grid Container */
+/* src/App.css */
+
 .grid-container {
   display: grid;
-  grid-template-columns: auto auto auto;
-  padding: 10px;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns on desktop */
+  gap: 20px;
+}
+
+/* Add media queries for mobile screens */
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr; /* 2 columns on tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-container {
+    grid-template-columns: 1fr; /* 1 column on mobile */
+  }
 }

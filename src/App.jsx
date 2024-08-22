@@ -28,6 +28,12 @@ function App() {
         <section>
           <h2>כתבות</h2>
           <div className="grid-container">
+            <Card img={washingtonBill} alt="וושינגטון" title="ויקיפדיה - השותפים להסתרה."/>
+            <Card img={washingtonBill} alt="וושינגטון" title="השקר של נשיאי ארה''ב"/>
+            <Card img={washingtonBill} alt="וושינגטון" title="זימון שדים: כיצד לכלוא את שר ההסתרה?"/>
+            <Card img={washingtonBill} alt="וושינגטון" title="תחקיר: מיהו השד שמאחורי ה''עשב''"/>
+            <Card img={washingtonBill} alt="וושינגטון" title="תרגום המילה לעברית"/>
+            <Card img={washingtonBill} alt="וושינגטון" title="השתרשות המילה בשפה האנגלית"/>
             <Card img={washingtonBill} alt="וושינגטון" title="איך החל השקר ששמו ''עשב''?"/>
           </div>
         </section>
