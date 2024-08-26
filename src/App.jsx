@@ -1,25 +1,34 @@
 import "./App.css";
-import washingtonBill from "./assets/washington_bill.png";
-import demon from "./assets/demon.png";
-import candles from "./assets/candles.jpg";
-import dictionary from "./assets/dictionary.jpg";
-import mountain from "./assets/mountain.jpg";
-import street from "./assets/street.jpg"
-import wikipedia from "./assets/wikipedia.png"
 import { Link, BrowserRouter, Routes, Route } from 'react-router-dom'
 import ArticlePage from "./ArticlePage.jsx";
+import React, { useEffect } from "react";
+import axios from 'axios';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/halmasha" element={<Home />} />
-        <Route path="/halmasha/articles/:id" element={<ArticlePage />} />
+        <Route path="/halmasha/articles/:id" element={<ArticlePage/>} />
       </Routes>
     </BrowserRouter>
   );
 }
-function Home() {
+
+
+
+function Home(props) {
+  const [articles, setArticles] = React.useState([]);
+  useEffect(() => {
+    axios.get('/halmasha/data/articles.json')
+    .then(response => {
+      setArticles(response.data.reverse())
+    })
+    .catch(error =>{
+      console.error("Error fetching articles:", error);
+    });
+  }, []);
+  console.log(articles)
   return (
     <>
       <header className="fixed top-0 left-0 w-full z-10">
@@ -46,13 +55,21 @@ function Home() {
         <section>
           <h2>כתבות</h2>
           <div className="grid-container">
-            <Card img={wikipedia} id="wikipedia" title="ויקיפדיה - השותפים להסתרה."/>
-            <Card img={mountain} id="presidents" title="השקר של נשיאי ארה''ב"/>
-            <Card img={candles} id="summoning" title="זימון שדים: כיצד לכלוא את שר ההסתרה?"/>
-            <Card img={demon} id="demons" title="תחקיר: מיהו השד שמאחורי ה''עשב''"/>
-            <Card img={street} id="translation" title="תרגום המילה לעברית"/>
-            <Card img={dictionary} id="english" title="השתרשות המילה בשפה האנגלית"/>
-            <Card img={washingtonBill} id="weed-lie" title="איך החל השקר ששמו ''עשב''?"/>
+            {
+              articles.map(article => {
+                // Debug log for each article
+                console.log('Rendering article:', article);
+
+                return (
+                  <Card
+                    key={article.id}
+                    id={article.id}
+                    title={article.title}
+                    img={article.imageName}
+                  />
+                );
+              })
+            }
           </div>
         </section>
       </main>
@@ -60,7 +77,7 @@ function Home() {
   );
 }
 
-function MyNavbar() {
+export function MyNavbar() {
   return (
     <div className="navbar bg-orange-400">
       <div className="flex-1">
@@ -104,17 +121,22 @@ function Divider() {
       <div className="divider"></div>
   )
 }
-function Card(props) {
+function Card({ id, title, img }) {
+  console.log('Image prop:', img); // Debug log
+
+  // Construct image URL from assets folder
+  const imageSrc = `/halmasha/assets/images/${img}`;
+
   return (
     <div className="card card-compact bg-base-100 w-96 shadow-xl">
       <figure>
-        <img src={props.img} alt={props.id} />
+        <img src={imageSrc} alt={title} />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">{props.title}</h2>
+        <h2 className="card-title">{title}</h2>
         <div className="card-actions justify-end">
-          <Link to={`/halmasha/articles/${props.id}`}>
-            <button className="btn btn-primary">Read More</button>
+          <Link to={`/halmasha/articles/${id}`}>
+            <button className="btn btn-primary">קרא עוד</button>
           </Link>
         </div>
       </div>

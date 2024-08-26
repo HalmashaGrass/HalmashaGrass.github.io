@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "title": "איך החל השקר ששמו ''עשב''?",
+        "contentName": "washington.txt",
+        "imageName": "washington_bill.png" 
+    },
+    {
+        "id": 2,
+        "title": "השתרשות המילה בשפה האנגלית",
+        "contentName": "english.txt",
+        "imageName": "dictionary.jpg"
+    },
+    {
+        "id": 3,
+        "title": "תרגום המילה לעברית",
+        "contentName": "hebrew.txt",
+        "imageName": "street.jpg"   
+    },
+    {
+        "id": 4,
+        "title": "תחקיר: מיהו השד שמאחורי ה''עשב''",
+        "contentName": "demon.txt",
+        "imageName": "demon.png"
+    },
+    {
+        "id": 5,
+        "title": "זימון שדים: כיצד לכלוא את שר ההסתרה?",
+        "contentName": "summoning.txt",
+        "imageName": "candles.jpg"
+    },
+    {
+        "id": 6,
+        "title": "השקר של נשיאי ארה\"ב'",
+        "contentName": "presidents.txt",
+        "imageName": "mountain.jpg"
+    },
+    {
+        "id": 7,
+        "title": "ויקיפדיה - השותפים להסתרה.",
+        "contentName": "wikipedia.txt",
+        "imageName": "wikipedia.png"
+    }
+]
