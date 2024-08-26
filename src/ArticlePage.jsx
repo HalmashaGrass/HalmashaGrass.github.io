@@ -31,17 +31,34 @@ function ArticlePage() {
       });
   }, [id]);
 
-  if (!article) return <div>Loading...</div>;
+  if (!article) return (
+    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+      <div className="text-center">
+        <div className="loading-spinner"></div> {/* DaisyUI spinner */}
+        <p className="text-gray-600">Loading...</p>
+      </div>
+    </div>
+  );
 
   // Construct image URL with base URL
   const imageUrl = `/halmasha/images/${article.imageName}`;
 
   return (
-    <div className="article-page">
-      <h1>{article.title}</h1>
-      <img src={imageUrl} alt={article.title} />
-      <div className="article-content">
-        {content}
+    <div className="max-w-4xl mx-auto p-6 bg-gray-50">
+      <div className="card bg-gray-200 shadow-xl border border-gray-300 rounded-lg">
+        <figure>
+          <img
+            src={imageUrl}
+            alt={article.title}
+            className="w-full h-auto rounded-t-lg border-b border-gray-300"
+          />
+        </figure>
+        <div className="card-body p-6">
+          <h1 className="text-4xl font-semibold text-gray-800 mb-4">{article.title}</h1>
+          <div className="prose prose-xl text-gray-700">
+            {content}
+          </div>
+        </div>
       </div>
     </div>
   );
