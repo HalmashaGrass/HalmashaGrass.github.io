@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-
 function ArticlePage() {
-  const { id } = useParams(); // Get article ID from the URL
-  const [article, setArticle] = useState(null); // State for article data
-  const [content, setContent] = useState(''); // State for article content
+  const { id } = useParams();
+  const [article, setArticle] = useState(null);
+  const [content, setContent] = useState('');
 
   useEffect(() => {
     axios.get('/halmasha/data/articles.json')
@@ -14,7 +13,6 @@ function ArticlePage() {
         if (articleData) {
           setArticle(articleData);
 
-          // Fetch article content
           axios.get(`/halmasha/content/${articleData.contentName}`)
             .then(response => {
               setContent(response.data);
@@ -34,13 +32,12 @@ function ArticlePage() {
   if (!article) return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <div className="text-center">
-        <div className="loading-spinner"></div> {/* DaisyUI spinner */}
+        <div className="loading-spinner"></div>
         <p className="text-gray-600">Loading...</p>
       </div>
     </div>
   );
 
-  // Construct image URL with base URL
   const imageUrl = `/halmasha/images/${article.imageName}`;
 
   return (
@@ -63,5 +60,4 @@ function ArticlePage() {
     </div>
   );
 }
-
 export default ArticlePage;
