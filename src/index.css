@@ -146,11 +146,7 @@ button {
   }
 }
 
-.grassImg {
-  background-image: url('./assets/grass.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+
 
 @media (max-width: 768px) {
   h1 {
