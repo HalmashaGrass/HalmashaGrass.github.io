@@ -8,14 +8,14 @@ function ArticlePage() {
   const [content, setContent] = useState(''); // State for article content
 
   useEffect(() => {
-    axios.get('/halmasha/data/articles.json')
+    axios.get('/data/articles.json')
       .then(response => {
         const articleData = response.data.find(article => article.id === parseInt(id));
         if (articleData) {
           setArticle(articleData);
 
           // Fetch article content
-          axios.get(`/halmasha/content/${articleData.contentName}`)
+          axios.get(`/content/${articleData.contentName}`)
             .then(response => {
               setContent(response.data);
             })
@@ -41,7 +41,7 @@ function ArticlePage() {
   );
 
   // Construct image URL with base URL
-  const imageUrl = `/halmasha/images/${article.imageName}`;
+  const imageUrl = `/images/${article.imageName}`;
 
   return (
     <div className="max-w-4xl mx-auto p-6 bg-gray-50">
