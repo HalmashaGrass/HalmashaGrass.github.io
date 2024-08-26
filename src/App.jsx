@@ -8,8 +8,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/halmasha" element={<Home />} />
-        <Route path="/halmasha/articles/:id" element={<ArticlePage/>} />
+        <Route path="/" element={<Home />} />
+        <Route path="/articles/:id" element={<ArticlePage/>} />
       </Routes>
     </BrowserRouter>
   );
@@ -20,7 +20,7 @@ function App() {
 function Home(props) {
   const [articles, setArticles] = React.useState([]);
   useEffect(() => {
-    axios.get('/halmasha/data/articles.json')
+    axios.get('/data/articles.json')
     .then(response => {
       setArticles(response.data.reverse())
     })
@@ -125,7 +125,7 @@ function Card({ id, title, img }) {
   console.log('Image prop:', img); // Debug log
 
   // Construct image URL from assets folder
-  const imageSrc = `/halmasha/images/${img}`;
+  const imageSrc = `/images/${img}`;
 
   return (
     <div className="card card-compact bg-base-100 w-96 shadow-xl">
@@ -135,7 +135,7 @@ function Card({ id, title, img }) {
       <div className="card-body">
         <h2 className="card-title">{title}</h2>
         <div className="card-actions justify-end">
-          <Link to={`/halmasha/articles/${id}`}>
+          <Link to={`/articles/${id}`}>
             <button className="btn btn-primary">קרא עוד</button>
           </Link>
         </div>

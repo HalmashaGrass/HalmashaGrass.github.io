@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://diamondmonster09.github.io/halmasha",
+  "homepage": "https://HalmashaGrass.github.io",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
