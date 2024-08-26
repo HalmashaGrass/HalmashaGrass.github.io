@@ -40,5 +40,23 @@
         "title": "ויקיפדיה - השותפים להסתרה.",
         "contentName": "wikipedia.txt",
         "imageName": "wikipedia.png"
+    },
+    {
+        "id": 8,
+        "title": "פפסי: השותפים למזימה?",
+        "contentName": "pepsi.txt",
+        "imageName": "pepsi.jpeg" 
+    },
+    {
+        "id": 9,
+        "title": "ספקנים? הכתבה הזו בשבילכם!",
+        "contentName": "question.txt",
+        "imageName": "question.jepg"
+    },
+    {
+        "id": 10,
+        "title": "למה עברנו לאתר חדש? כל הפרטים!",
+        "contentName": "server.txt",
+        "imageName": "server.jpeg"
     }
 ]
