@@ -72,7 +72,7 @@ button:focus-visible {
 }
 
 .grassImg {
-  background-image: url('/halmasha/assets/grass.jpg');
+  background-image: url('/assets/grass.jpg');
   background-repeat: no-repeat;
   background-size: cover; /* Adjusted to be fully responsive */
   width: 100%;
