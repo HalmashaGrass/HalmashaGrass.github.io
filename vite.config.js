@@ -5,4 +5,8 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   base: 'halmasha',
   plugins: [react()],
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets' // Ensure this is correctly set if you use a different directory
+  }
 })

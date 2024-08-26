@@ -125,7 +125,7 @@ function Card({ id, title, img }) {
   console.log('Image prop:', img); // Debug log
 
   // Construct image URL from assets folder
-  const imageSrc = `/halmasha/assets/images/${img}`;
+  const imageSrc = `/halmasha/images/${img}`;
 
   return (
     <div className="card card-compact bg-base-100 w-96 shadow-xl">
