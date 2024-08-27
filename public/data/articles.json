@@ -58,5 +58,11 @@
         "title": "למה עברנו לאתר חדש? כל הפרטים!",
         "contentName": "server.txt",
         "imageName": "server.jpeg"
+    },
+    {
+        "id": 11,
+        "title": "חשיפה: הבוגדים שבינינו - מי מונע מאיתנו להגיע ל-42 חברים בקבוצת הוואטסאפ?",
+        "contentName": "whatsapp.txt",
+        "imageName": "whatsapp.jpeg"
     }
 ]
