@@ -1,5 +1,5 @@
 import "./App.css";
-import { Link, BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Link, BrowserRouter, Routes, Route, HashRouter } from 'react-router-dom'
 import ArticlePage from "./ArticlePage.jsx";
 import React, { useEffect } from "react";
 import axios from 'axios';
@@ -7,12 +7,12 @@ import axios from 'axios';
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/articles/:id" element={<ArticlePage/>} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
@@ -136,7 +136,7 @@ function Card({ id, title, img }) {
       <div className="card-body">
         <h2 className="card-title">{title}</h2>
         <div className="card-actions justify-end">
-          <Link to={`/articles/${id}`} target="_blank" rel="noopener noreferrer">
+          <Link to={`/articles/${id}`}>
             <button className="btn btn-primary">קרא עוד</button>
           </Link>
         </div>
