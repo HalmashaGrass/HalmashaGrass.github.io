@@ -4,6 +4,7 @@ import ArticlePage from "./ArticlePage.jsx";
 import React, { useEffect } from "react";
 import axios from 'axios';
 
+
 function App() {
   return (
     <BrowserRouter>
@@ -135,7 +136,7 @@ function Card({ id, title, img }) {
       <div className="card-body">
         <h2 className="card-title">{title}</h2>
         <div className="card-actions justify-end">
-          <Link to={`/articles/${id}`}>
+          <Link to={`/articles/${id}`} target="_blank" rel="noopener noreferrer">
             <button className="btn btn-primary">קרא עוד</button>
           </Link>
         </div>
