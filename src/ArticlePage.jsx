@@ -53,7 +53,12 @@ function ArticlePage() {
         <div className="card-body p-6">
           <h1 className="text-4xl font-semibold text-gray-800 mb-4">{article.title}</h1>
           <div className="prose prose-xl text-gray-700">
-            {content}
+          {content.split("\n").map((part, index) => (
+    <React.Fragment key={index}>
+      {part}
+      {index < content.split("\n").length - 1 && <br />}
+    </React.Fragment>
+  ))}
           </div>
         </div>
       </div>
