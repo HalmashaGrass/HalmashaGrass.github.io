@@ -2,24 +2,28 @@
     {
         "id": 1,
         "title": "איך החל השקר ששמו ''עשב''?",
+        "author": "הושערקפוח דלאי-אנג'לו",
         "contentName": "washington.txt",
         "imageName": "washington_bill.png" 
     },
     {
         "id": 2,
         "title": "השתרשות המילה בשפה האנגלית",
+        "author": "הושערקפוח דלאי-אנג'לו",
         "contentName": "english.txt",
         "imageName": "dictionary.jpg"
     },
     {
         "id": 3,
         "title": "תרגום המילה לעברית",
+        "author": "הושערקפוח דלאי-אנג'לו",
         "contentName": "hebrew.txt",
         "imageName": "street.jpg"   
     },
     {
         "id": 4,
         "title": "תחקיר: מיהו השד שמאחורי ה''עשב''",
+        "author": "הושערקפוח דלאי-אנג'לו",
         "contentName": "demon.txt",
         "imageName": "demon.png"
     },
@@ -32,12 +36,14 @@
     {
         "id": 6,
         "title": "השקר של נשיאי ארה\"ב'",
+        "author": "הושערקפוח דלאי-אנג'לו",
         "contentName": "presidents.txt",
         "imageName": "mountain.jpg"
     },
     {
         "id": 7,
         "title": "ויקיפדיה - השותפים להסתרה.",
+        "author": "הושערקפוח דלאי-אנג'לו",
         "contentName": "wikipedia.txt",
         "imageName": "wikipedia.png"
     },
@@ -50,18 +56,21 @@
     {
         "id": 9,
         "title": "ספקנים? הכתבה הזו בשבילכם!",
+        "author": "עיני_אמת",
         "contentName": "question.txt",
         "imageName": "questions.jpeg"
     },
     {
         "id": 10,
         "title": "למה עברנו לאתר חדש? כל הפרטים!",
+        "author": "עיני_אמת",
         "contentName": "server.txt",
         "imageName": "server.jpeg"
     },
     {
         "id": 11,
         "title": "חשיפה: הבוגדים שבינינו - מי מונע מאיתנו להגיע ל-42 חברים בקבוצת הוואטסאפ?",
+        "author": "עיני_אמת",
         "contentName": "whatsapp.txt",
         "imageName": "whatsapp.jpeg"
     }
