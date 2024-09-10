@@ -3,6 +3,7 @@ import { Link, BrowserRouter, Routes, Route, HashRouter } from 'react-router-dom
 import ArticlePage from "./ArticlePage.jsx";
 import React, { useEffect } from "react";
 import axios from 'axios';
+import NewsFeed from "./NewsFeed.jsx";
 
 
 function App() {
@@ -11,12 +12,20 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/articles/:id" element={<ArticlePage/>} />
+        <Route path="/news" element={<AnotherHome />} />
       </Routes>
     </HashRouter>
   );
 }
 
-
+function AnotherHome() {
+  return (
+    <>
+      <h1>News</h1>
+      <NewsFeed />
+    </>
+  )
+}
 
 function Home(props) {
   const [articles, setArticles] = React.useState([]);
@@ -86,11 +95,24 @@ export function MyNavbar() {
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1 space-x-1">
-          {['בית', 'אודות', 'חדשות', 'פורום', 'כתבות', 'חנות'].map((item) => (
-            <li key={item}>
-              <a className="text-gray-300 font-extrabold no-underline">{item}</a>
-            </li>
-          ))}
+          <li>
+            <a className="text-gray-300 font-extrabold no-underline" href={`/#/news`}>חדשות</a>
+          </li>
+          <li>
+            <a className="text-gray-300 font-extrabold no-underline" href={`/`}>כתבות</a>
+          </li>
+          <li>
+            <a className="text-gray-300 font-extrabold no-underline" href={`/`}>בית</a>
+          </li>
+          <li>
+            <a className="text-gray-300 font-extrabold no-underline" href={`/`}>חנות</a>
+          </li>
+          <li>
+            <a className="text-gray-300 font-extrabold no-underline" href={`/`}>פורום</a>
+          </li>
+          <li>
+            <a className="text-gray-300 font-extrabold no-underline" href={`/`}>יצירת קשר</a>
+          </li>
         </ul>
       </div>
     </div>

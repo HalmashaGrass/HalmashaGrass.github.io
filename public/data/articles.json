@@ -55,23 +55,9 @@
     },
     {
         "id": 9,
-        "title": "ספקנים? הכתבה הזו בשבילכם!",
-        "author": "עיני_אמת",
-        "contentName": "question.txt",
-        "imageName": "questions.jpeg"
-    },
-    {
-        "id": 10,
         "title": "למה עברנו לאתר חדש? כל הפרטים!",
         "author": "עיני_אמת",
         "contentName": "server.txt",
         "imageName": "server.jpeg"
-    },
-    {
-        "id": 11,
-        "title": "חשיפה: הבוגדים שבינינו - מי מונע מאיתנו להגיע ל-42 חברים בקבוצת הוואטסאפ?",
-        "author": "עיני_אמת",
-        "contentName": "whatsapp.txt",
-        "imageName": "whatsapp.jpeg"
     }
 ]
