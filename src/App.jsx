@@ -4,6 +4,7 @@ import ArticlePage from "./ArticlePage.jsx";
 import React, { useEffect } from "react";
 import axios from 'axios';
 import NewsFeed from "./NewsFeed.jsx";
+import ContactPage from "./ContactPage.jsx";
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/articles/:id" element={<ArticlePage/>} />
         <Route path="/news" element={<AnotherHome />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
     </HashRouter>
   );
@@ -21,7 +23,6 @@ function App() {
 function AnotherHome() {
   return (
     <>
-      <h1>News</h1>
       <NewsFeed />
     </>
   )
@@ -111,7 +112,7 @@ export function MyNavbar() {
             <a className="text-gray-300 font-extrabold no-underline" href={`/`}>פורום</a>
           </li>
           <li>
-            <a className="text-gray-300 font-extrabold no-underline" href={`/`}>יצירת קשר</a>
+            <a className="text-gray-300 font-extrabold no-underline" href={`/#/contact`}>יצירת קשר</a>
           </li>
         </ul>
       </div>

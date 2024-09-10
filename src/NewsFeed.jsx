@@ -19,7 +19,7 @@ export default function NewsFeed() {
     <div className="min-h-screen bg-gradient-to-br from-green-100 to-orange-100 bg-fixed">
       <div className="container mx-auto px-4 py-12">
         <h1 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-green-600 mb-12 text-center">
-          🌟 Exciting Website News! 🌟
+          🌟 חדשות! 🌟
         </h1>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {newsData.map((item) => (
