@@ -1,17 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { motion } from 'framer-motion'
+import { getAllDocuments } from '@/services/firestore'
 
 // News items data
-const newsData = [
-  {
-    id: 1,
-    title: "יש תקווה!",
-    description: "סוף סוף, אחרי 248 שנים בהן ג'ורג' וושינגטון הנהיג את ארה''ב ומנע ברודנות מידע מהציבור, יש תקווה, להשתחרר משלטון ההסתרה! באם תזכה קמלה האריס בבחירות, זו תהיה הפעם הראשונה בתולדות ארה''ב שאישה תכהן בבית הלבן, משמע לא ג'ורג' וושינגטון!",
-    image: "/images/harris.png",
-    date: "2023-06-15",
-    category: "ארה''ב"
-  }
-]
+const newsData = await getAllDocuments('news')
 
 export default function NewsFeed() {
     console.log("News feed")
@@ -41,13 +33,13 @@ function NewsCard({ item }) {
       <div className="card bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300 overflow-hidden">
         <div className="card-body">
           <div className="flex items-start space-x-4">
-            <img src={item.image} alt="" className="w-24 h-24 rounded-lg object-cover" />
+            <img src={`/images/${item.image}`} alt="" className="w-24 h-24 rounded-lg object-cover" />
             <div className="flex-1">
               <h2 className="card-title text-green-700 text-xl md:text-2xl font-bold mb-2">{item.title}</h2>
-              <div className="badge badge-accent text-white font-semibold mb-2">{item.category}</div>
+              <div className="badge badge-accent text-white font-semibold mb-2">{item.tag}</div>
             </div>
           </div>
-          <p className="text-gray-600 mt-4 mb-4">{item.description}</p>
+          <p className="text-gray-600 mt-4 mb-4">{item.content}</p>
           <div className="text-right text-sm text-orange-500">{item.date}</div>
         </div>
       </div>
