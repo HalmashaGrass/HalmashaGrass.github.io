@@ -22,7 +22,7 @@ export default function NewsFeed() {
     const fetchNews = async () => {
       try {
         // Fetch data from the service
-        const data = await getAllDocuments('articles');
+        const data = await getAllDocuments('news');
         setNews(data as NewsItem[]);
       } catch (err) {
         setError('Failed to fetch articles');
