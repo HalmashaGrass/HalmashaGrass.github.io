@@ -1,12 +1,21 @@
-import React, { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { getAllDocuments } from '@/services/firestore'
 
-// News items data
-const newsData = await getAllDocuments('news')
+// Define a type for news item
+interface NewsItem {
+  id: string;
+  image: string;
+  title: string;
+  tag: string;
+  content: string;
+  date: string;
+}
+
+// Fetch news data and ensure it's typed correctly
+const newsData: NewsItem[] = await getAllDocuments('news') as NewsItem[];
 
 export default function NewsFeed() {
-    console.log("News feed")
+  console.log("News feed")
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-100 to-orange-100 bg-fixed">
       <div className="container mx-auto px-4 py-12">
@@ -23,7 +32,12 @@ export default function NewsFeed() {
   )
 }
 
-function NewsCard({ item }) {
+// Define the props type for NewsCard
+interface NewsCardProps {
+  item: NewsItem;
+}
+
+function NewsCard({ item }: NewsCardProps) {
   return (
     <motion.div 
       initial={{ opacity: 0, y: 50 }}

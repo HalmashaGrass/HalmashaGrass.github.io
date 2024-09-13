@@ -7,8 +7,6 @@ interface ArticleProps {
   title: string
   imageUrl: string
   id: number
-  content: string,
-  author: string
 }
 
 export default function ArticleCard({ title, imageUrl, id }: ArticleProps) {
