@@ -44,7 +44,7 @@ export default function NewsFeed() {
           🌟 חדשות! 🌟
         </h1>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {articles.map((item) => (
+          {news.map((item: NewsItem) => (
             <NewsCard key={item.id} item={item} />
           ))}
         </div>
