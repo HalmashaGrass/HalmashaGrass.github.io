@@ -69,10 +69,10 @@ export default function ArticlePageNew() {
             </div>
             <div className="prose prose-lg max-w-none text-gray-700">
               <p>
-                {content.split("\n").map((part, index) => (
+                {content.split("^").map((part, index) => (
                   <React.Fragment key={index}>
                     {part}
-                    {index < content.split("\n").length - 1 && <br />}
+                    {index < content.split("^").length - 1 && <br />}
                   </React.Fragment>
                 ))}
               </p>
