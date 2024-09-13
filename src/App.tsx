@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-
+import { ReactNode } from 'react';
 import { HashRouter, Link, Route, Routes } from "react-router-dom"
 
 import { Menu, X } from "lucide-react"
@@ -218,13 +218,19 @@ function Home() {
 </section>
         </div>
         )}
-        function NavLink({ to, children, className = "" }) {
-            return (
-              <Link
-                to={to}
-                className={`text-white hover:text-gray-200 transition-colors duration-200 ${className}`}
-              >
-                {children}
-              </Link>
-            )
-          }
+        interface NavLinkProps {
+          to: string;
+          children: ReactNode;
+          className?: string;
+        }
+        
+        function NavLink({ to, children, className = "" }: NavLinkProps) {
+          return (
+            <Link
+              to={to}
+              className={`text-white hover:text-gray-200 transition-colors duration-200 ${className}`}
+            >
+              {children}
+            </Link>
+          );
+        }

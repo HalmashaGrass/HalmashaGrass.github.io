@@ -1,20 +1,31 @@
-import { Link } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import { ArrowLeft } from 'lucide-react';
 import { getDocument } from '@/services/firestore';
 
+// Define a type for the article data
+interface Article {
+  name: string;
+  author: string;
+  content: string;
+  image: string;
+}
+
 export default function ArticlePageNew() {
-  const { id } = useParams(); // Get the article ID from the URL parameters
-  const [article, setArticle] = useState(null); // State to hold the article data
+  const { id } = useParams<{ id: string }>(); // Explicitly type the params to include id as a string
+  const [article, setArticle] = useState<Article | null>(null); // State to hold the article data
   const [content, setContent] = useState(''); // State for content
 
   useEffect(() => {
     // Fetch the article data asynchronously
     const fetchArticle = async () => {
-      const fetchedArticle = await getDocument('articles', id);
-      setArticle(fetchedArticle);
-      setContent(fetchedArticle.content); // Set the content from the fetched article
+      if (id) { // Check if id is defined
+        const fetchedArticle = await getDocument('articles', id);
+        if (fetchedArticle) { // Ensure fetchedArticle is not null
+          setArticle(fetchedArticle as Article); // Cast to Article type
+          setContent(fetchedArticle.content); // Set the content from the fetched article
+        }
+      }
     };
 
     fetchArticle();
