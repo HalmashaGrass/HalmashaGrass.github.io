@@ -6,16 +6,16 @@ import { Link } from "react-router-dom"
 interface ArticleProps {
   title: string
   imageUrl: string
-  id: number
+  myId: string
 }
 
-export default function ArticleCard({ title, imageUrl, id }: ArticleProps) {
+export default function ArticleCard({ title, imageUrl, myId }: ArticleProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      key={id}
+      key={myId}
     >
       <Card className="overflow-hidden">
         <CardContent className="p-0">
@@ -31,7 +31,7 @@ export default function ArticleCard({ title, imageUrl, id }: ArticleProps) {
           </div>
         </CardContent>
         <CardFooter className="bg-gray-50 p-4">
-          <Link to={`/articles/${id}`}>
+          <Link to={`/articles/${myId}`}>
           <Button className="w-full">קרא עוד</Button>
           </Link>
         </CardFooter>

@@ -1,9 +1,40 @@
-import { getAllDocuments } from "@/services/firestore"
-import ArticleCard from "./ArticleCard"
+import { getAllDocuments } from "@/services/firestore";
+import ArticleCard from "./ArticleCard";
+import { useState, useEffect } from "react";
 
-const articles = await getAllDocuments('articles')
+// Define a type for news item (assuming it’s similar to NewsItem)
+interface NewsItem {
+  id: string;
+  image: string;
+  name: string;
+  content: string;
+  author: string;
+}
+
 export default function ArticlesSection() {
-    console.log(articles)
+  const [articles, setArticles] = useState<NewsItem[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchArticles = async () => {
+      try {
+        // Fetch data from the service
+        const data = await getAllDocuments('articles');
+        setArticles(data as NewsItem[]);
+      } catch (err) {
+        setError('Failed to fetch articles');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchArticles();
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
+
   return (
     <section className="py-20 bg-gray-100">
       <div className="container mx-auto px-4">
@@ -12,14 +43,14 @@ export default function ArticlesSection() {
           {articles.map((article) => (
             <div key={article.id}>
               <ArticleCard
-              id={article.id}
-              title={article.name}
-              imageUrl={article.image}
-            />
+                myId={article.id}
+                title={article.name} // Changed from 'name' to 'title'
+                imageUrl={article.image} // Changed to match the property
+              />
             </div>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }

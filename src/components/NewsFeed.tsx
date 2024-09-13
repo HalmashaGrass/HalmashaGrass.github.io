@@ -1,5 +1,6 @@
-import { motion } from 'framer-motion'
-import { getAllDocuments } from '@/services/firestore'
+import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { getAllDocuments } from '@/services/firestore';
 
 // Define a type for news item
 interface NewsItem {
@@ -12,10 +13,30 @@ interface NewsItem {
 }
 
 // Fetch news data and ensure it's typed correctly
-const newsData: NewsItem[] = await getAllDocuments('news') as NewsItem[];
-
 export default function NewsFeed() {
-  console.log("News feed")
+  const [news, setNews] = useState<NewsItem[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        // Fetch data from the service
+        const data = await getAllDocuments('articles');
+        setNews(data as NewsItem[]);
+      } catch (err) {
+        setError('Failed to fetch articles');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchNews();
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-100 to-orange-100 bg-fixed">
       <div className="container mx-auto px-4 py-12">
@@ -23,13 +44,13 @@ export default function NewsFeed() {
           🌟 חדשות! 🌟
         </h1>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {newsData.map((item) => (
+          {articles.map((item) => (
             <NewsCard key={item.id} item={item} />
           ))}
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 // Define the props type for NewsCard
@@ -58,5 +79,5 @@ function NewsCard({ item }: NewsCardProps) {
         </div>
       </div>
     </motion.div>
-  )
+  );
 }
