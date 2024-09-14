@@ -32,8 +32,7 @@ export default function App() {
 function Home() {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-
-
+  const [counter, setCounter] = useState(0)
 
   const containerVariants = {
 
@@ -76,6 +75,8 @@ function Home() {
   return (
 
     <div className="min-h-screen bg-white" dir="rtl">
+
+      <button onClick={() => setCounter(counter + 1)}>Text</button>
 
       {/* Orange Navbar */}
 

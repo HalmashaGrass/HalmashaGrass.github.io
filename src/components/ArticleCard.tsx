@@ -7,9 +7,10 @@ interface ArticleProps {
   title: string
   imageUrl: string
   myId: string
+  author: string
 }
 
-export default function ArticleCard({ title, imageUrl, myId }: ArticleProps) {
+export default function ArticleCard({ title, imageUrl, myId, author }: ArticleProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -17,7 +18,7 @@ export default function ArticleCard({ title, imageUrl, myId }: ArticleProps) {
       transition={{ duration: 0.5 }}
       key={myId}
     >
-      <Card className="overflow-hidden">
+     {/* <Card className="overflow-hidden">
         <CardContent className="p-0">
           <img
             src={`/images/${imageUrl}`}
@@ -35,7 +36,21 @@ export default function ArticleCard({ title, imageUrl, myId }: ArticleProps) {
           <Button className="w-full">קרא עוד</Button>
           </Link>
         </CardFooter>
-      </Card>
+      </Card> */}
+      {/* From Uiverse.io by gharsh11032000 */ }
+<div className="card">
+<img
+            src={`/images/${imageUrl}`}
+            alt={title}
+            width={400}
+            height={200}
+            className="w-full h-48 object-cover"
+          />  <div className="card__content">
+    <p className="card__title">{title}</p>
+    <p className="card__description">מאת: {author}</p>
+  </div>
+</div>
+
     </motion.div>
   )
 }
