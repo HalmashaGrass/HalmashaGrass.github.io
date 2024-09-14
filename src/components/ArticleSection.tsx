@@ -1,7 +1,6 @@
 import { getAllDocuments } from "@/services/firestore";
 import ArticleCard from "./ArticleCard";
 import { useState, useEffect } from "react";
-import { time } from "console";
 
 // Define a type for news item (assuming it’s similar to NewsItem)
 interface NewsItem {
@@ -16,9 +15,7 @@ export default function ArticlesSection() {
   const [articles, setArticles] = useState<NewsItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
+
   useEffect(() => {
     const fetchArticles = async () => {
       try {
