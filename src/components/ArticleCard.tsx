@@ -1,7 +1,7 @@
 import { motion } from "framer-motion"
 //import { Card, CardContent, CardFooter } from "@/components/ui/card"
 //import { Button } from "@/components/ui/button"
-//import { Link } from "react-router-dom" 
+import { Link } from "react-router-dom" 
 
 interface ArticleProps {
   title: string
@@ -38,6 +38,7 @@ export default function ArticleCard({ title, imageUrl, myId, author }: ArticlePr
         </CardFooter>
       </Card> */}
       {/* From Uiverse.io by gharsh11032000 */ }
+<Link to={`/articles/${myId}`}>
 <div className="card">
 <img
             src={`/images/${imageUrl}`}
@@ -50,6 +51,7 @@ export default function ArticleCard({ title, imageUrl, myId, author }: ArticlePr
     <p className="card__description">מאת: {author}</p>
   </div>
 </div>
+</Link>
 
     </motion.div>
   )
