@@ -15,6 +15,7 @@ import ArticlesSection from "./components/ArticleSection"
 import ArticlePageNew from "./components/ArticlePage"
 import NewsFeed from "./components/NewsFeed"
 import ContactPage from "./components/ContactPage"
+import LanguageDialog from "./components/LanguageDialog";
 
 export default function App() {
   return (
@@ -32,7 +33,7 @@ export default function App() {
 function Home() {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [counter, setCounter] = useState(0)
+  const [lang, setLang] = useState('')
 
   const containerVariants = {
 
@@ -75,8 +76,6 @@ function Home() {
   return (
 
     <div className="min-h-screen bg-white" dir="rtl">
-
-      <button onClick={() => setCounter(counter + 1)}>Text</button>
 
       {/* Orange Navbar */}
 
@@ -145,7 +144,7 @@ function Home() {
 
       </nav>
 
-
+        <LanguageDialog setLangState={setLang} langState={lang} />
 
       {/* Hero Section with Semi-transparent Image Background */}
 
