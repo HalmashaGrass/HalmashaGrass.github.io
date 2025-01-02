@@ -65,7 +65,7 @@ function NewsCard({ item }: NewsCardProps) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="card bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300 overflow-hidden">
+      <div className="card h-fit bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300 overflow-hidden">
         <div className="card-body">
           <div className="flex items-start space-x-4">
             <img src={`/images/${item.image}`} alt="" className="w-24 h-24 rounded-lg object-cover" />
