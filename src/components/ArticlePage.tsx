@@ -97,6 +97,7 @@ export default function ArticlePageNew() {
           </div>
         </article>
       </div>
+      <small>id: {id}</small>
     </div>
   );
 }
