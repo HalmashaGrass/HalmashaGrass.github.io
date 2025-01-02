@@ -11,6 +11,18 @@ interface Article {
   image: string;
 }
 
+function isValidUrl(str: string) {
+  const pattern = new RegExp(
+    '^([a-zA-Z]+:\\/\\/)?' + // protocol
+    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
+    '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+    '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+    '(\\#[-a-z\\d_]*)?$', // fragment locator
+    'i'
+  );
+  return pattern.test(str);
+}
 export default function ArticlePageNew() {
   const { id } = useParams<{ id: string }>(); // Explicitly type the params to include id as a string
   const [article, setArticle] = useState<Article | null>(null); // State to hold the article data
@@ -34,8 +46,13 @@ export default function ArticlePageNew() {
   if (!article) {
     return <div>Loading...</div>; // Display loading message while article is being fetched
   }
-
-  const imageUrl = `/images/${article.image}`; // Create the image URL based on the article data
+  let imageUrl = ""
+  if (!isValidUrl(article.image)) {
+    imageUrl = `/images/${article.image}`; // Create the image URL based on the article data
+  }
+  else {
+    imageUrl = article.image
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-orange-50">

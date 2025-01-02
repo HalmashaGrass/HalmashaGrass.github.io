@@ -16,6 +16,7 @@ import ArticlePageNew from "./components/ArticlePage"
 import NewsFeed from "./components/NewsFeed"
 import ContactPage from "./components/ContactPage"
 import LanguageDialog from "./components/LanguageDialog";
+import AdminPage from "./components/AdminPage";
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
       <Route path="/articles/:id" element={<ArticlePageNew />} />
       <Route path="/news" element={<NewsFeed />} />
       <Route path="/contact" element={<ContactPage />} />
+      <Route path="/admin" element={<AdminPage />} />
     </Routes>
   </HashRouter>
   )
@@ -33,7 +35,7 @@ export default function App() {
 function Home() {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [lang, setLang] = useState('')
+  const [lang, setLang] = useState('he')
 
   const containerVariants = {
 
