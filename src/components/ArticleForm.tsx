@@ -47,7 +47,7 @@ const ArticleForm: React.FC = () => {
         <Input
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          placeholder="Title"
+          placeholder="כותרת"
           required
         />
       </div>
@@ -56,7 +56,7 @@ const ArticleForm: React.FC = () => {
         <Input
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
-          placeholder="Author"
+          placeholder="שם הכותב"
           required
         />
       </div>
@@ -65,7 +65,7 @@ const ArticleForm: React.FC = () => {
         <Textarea
           value={content}
           onChange={(e) => setContent(e.target.value)}
-          placeholder="Content"
+          placeholder="תוכן"
           required
         />
       </div>
@@ -74,7 +74,7 @@ const ArticleForm: React.FC = () => {
         <Input
           value={image}
           onChange={(e) => setImage(e.target.value)}
-          placeholder="Image URL"
+          placeholder="כתובת אתר לתמונה"
           required
         />
       </div>

@@ -13,8 +13,8 @@ const AdminPanel: React.FC = () => {
     >
       <Tabs defaultValue="article" className="w-full">
         <TabsList className="grid w-full grid-cols-2">
-          <TabsTrigger value="article">Add Article</TabsTrigger>
-          <TabsTrigger value="news">Add News</TabsTrigger>
+          <TabsTrigger value="article">הוסף כתבה</TabsTrigger>
+          <TabsTrigger value="news">הוסף פריט חדשות</TabsTrigger>
         </TabsList>
         <TabsContent value="article">
           <ArticleForm />

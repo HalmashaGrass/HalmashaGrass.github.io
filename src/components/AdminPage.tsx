@@ -14,7 +14,7 @@ const App: React.FC = () => {
         transition={{ duration: 0.5 }}
         className="container mx-auto p-4"
       >
-        <h1 className="text-4xl font-bold text-center mb-8 text-orange-500">Admin Panel</h1>
+        <h1 className="text-4xl font-bold text-center mb-8 text-orange-500">עמוד מנהלים</h1>
         {!isAuthenticated ? (
           <PasswordForm onAuthenticate={() => setIsAuthenticated(true)} />
         ) : (
