@@ -4,7 +4,7 @@ import { Input } from './ui/input';
 import { Button } from './ui/button';
 import { Textarea } from './ui/textarea';
 import { FileImage, User, Type, AlignLeft } from 'lucide-react';
-import { collection, updateDoc, doc } from 'firebase/firestore';
+import { updateDoc, doc } from 'firebase/firestore';
 import { db } from '../services/firestore';
 
 const ArticleEditForm: React.FC = () => {
