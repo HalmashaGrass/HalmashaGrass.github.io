@@ -22,8 +22,7 @@ const NewsForm: React.FC = () => {
         content,
         date,
         image,
-        tag,
-        createdAt: new Date()
+        tag
       });
       // Reset form
       setTitle('');
