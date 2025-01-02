@@ -14,7 +14,7 @@ const PasswordForm: React.FC<PasswordFormProps> = ({ onAuthenticate }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (password === 'admin123') { // Replace with your actual password
+    if (password === 'halmasha12.') { // Replace with your actual password
       onAuthenticate();
     } else {
       setError('סיסמה שגוייה');
